@@ -1,29 +1,26 @@
 package com.demo.leta.viewModels
 
-import android.util.Log
-import com.demo.leta.services.SongLeapApiService
-import kotlinx.coroutines.Dispatchers
+import androidx.databinding.ObservableArrayList
 import androidx.lifecycle.viewModelScope
-import com.demo.leta.models.SongLeapApiResult
+import com.demo.leta.models.Artist
+import com.demo.leta.services.SongLeapDataService
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class MainActivityViewModel: ObservableViewModel() {
 
-
-    private val apiService = SongLeapApiService()
+    private val dataService = SongLeapDataService()
     private var isLoading = false
+    val artistList = ObservableArrayList<Artist>()
 
     fun loadData() {
         isLoading = true
         viewModelScope.launch(Dispatchers.IO) {
-            when (val result = apiService.getArtists()) {
-                is SongLeapApiResult.Success -> Log.d("MainActVm", "Data loaded : $result")
-                else -> {
-                    Log.e("MainActVm", "Could not load data : $result")
-                }
-            }
-
-            isLoading = false
+            val result = dataService.getArtists()
+            artistList.clear()
+            artistList.addAll(result)
         }
+
+        isLoading = false
     }
 }

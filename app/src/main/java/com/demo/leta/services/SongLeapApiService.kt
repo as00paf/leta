@@ -43,7 +43,7 @@ class SongLeapApiService {
 
     suspend fun getVenue(id: String): SongLeapApiResult<VenueDTO> = callApi { service.getVenue(id) }
 
-    suspend fun getVenuesPerformances(id: String, from: Date?, to: Date?): SongLeapApiResult<List<PerformanceDTO>> = callApi { service.getVenuesPerformances(id, from, to) }
+    suspend fun getVenuePerformances(id: String, from: Date?, to: Date?): SongLeapApiResult<List<PerformanceDTO>> = callApi { service.getVenuesPerformances(id, from, to) }
 
     // Performances
     suspend fun getPerformances(from: Date?, to: Date?): SongLeapApiResult<List<PerformanceDTO>> = callApi { service.getPerformances(from, to) }
