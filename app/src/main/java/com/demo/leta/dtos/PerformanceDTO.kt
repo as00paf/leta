@@ -7,5 +7,5 @@ data class PerformanceDTO(
     @SerializedName("id") val id: Int,
     @SerializedName("artistId") val artistId: Int,
     @SerializedName("date") val date: Date,
-    @SerializedName("venueId") val venueId: Int
+    @SerializedName("venue") val venue: VenueDTO
 )

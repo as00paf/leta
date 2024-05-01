@@ -2,9 +2,9 @@ package com.demo.leta.models
 
 import java.util.Date
 
-data class Performance(
+data class ArtistPerformance(
     val id: Int,
-    val artistId: Int,
     val date: Date,
-    val venueId: Int
+    val artist: Artist,
+    val venue: Venue
 )

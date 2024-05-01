@@ -1,4 +1,4 @@
-package com.demo.leta.ui
+package com.demo.leta.ui.viewHolders
 
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel

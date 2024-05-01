@@ -1,10 +1,11 @@
-package com.demo.leta.ui
+package com.demo.leta.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.demo.leta.databinding.ItemArtistBinding
 import com.demo.leta.models.Artist
+import com.demo.leta.ui.viewHolders.ArtistItemViewHolder
 import com.demo.leta.viewModels.ArtistItemViewModel
 
 class ArtistItemAdapter : RecyclerView.Adapter<ArtistItemViewHolder>() {

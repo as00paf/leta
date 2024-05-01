@@ -7,7 +7,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
-import java.util.Date
 
 interface SongLeapRetrofitService {
     // Artist
@@ -17,11 +16,11 @@ interface SongLeapRetrofitService {
     @GET("artist/{id}")
     fun getArtist(@Path("id") id: String): Call<ArtistDTO>
 
-    @GET("artist/{id}/performances")
+    @GET("artists/{id}/performances")
     fun getArtistPerformances(
-        @Path("id") id: String,
-        @Query("from") from: Date?,
-        @Query("to") to: Date?
+        @Path("id") id: Int,
+        @Query("from") from: String?,
+        @Query("to") to: String?
     ): Call<List<PerformanceDTO>>
 
     // Venues
@@ -34,15 +33,15 @@ interface SongLeapRetrofitService {
     @GET("venues/{id}/performances")
     fun getVenuesPerformances(
         @Path("id") id: String,
-        @Query("from") from: Date?,
-        @Query("to") to: Date?
+        @Query("from") from: String?,
+        @Query("to") to: String?
     ): Call<List<PerformanceDTO>>
 
     // Performances
     @GET("performances")
     fun getPerformances(
-        @Query("from") from: Date?,
-        @Query("to") to: Date?
+        @Query("from") from: String?,
+        @Query("to") to: String?
     ): Call<List<PerformanceDTO>>
 
     @GET("performance/{id}")
